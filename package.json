@@ -1,0 +1,27 @@
+{
+	"name": "my-svelte-portfolio",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''"
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^4.0.0",
+		"@sveltejs/kit": "^2.16.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"autoprefixer": "^10.4.20",
+		"postcss": "^8.5.3",
+		"svelte": "^5.0.0",
+		"tailwindcss": "^4.0.11",
+		"vite": "^6.0.0"
+	},
+	"dependencies": {
+		"@tailwindcss/cli": "^4.0.11",
+		"@tailwindcss/postcss": "^4.0.11",
+		"@tailwindcss/vite": "^4.0.11"
+	}
+}
