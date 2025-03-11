@@ -20,24 +20,24 @@
         <p><b class="pr-2">Email</b> minhtien2812000@gmail.com</p>
         <p>
             <b class="pr-2">GitHub</b>
-            <a href=" " target="_blank" class="text-violet-400"
-                >mitiqttg<sup class=""
+            <a href=" " target="_blank" class="text-red-500"
+                >Trần Minh Tiến<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
                             class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
-                        /></span
+                        ></i></span
                     ></sup
                 ></a
             >
         </p>
         <p>
             <b class="pr-2">LinkedIn</b>
-            <a href=" " target="_blank" class="text-violet-400"
+            <a href=" " target="_blank" class="text-red-500"
                 >Tien Tran<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
                             class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
-                        /></span
+                        ></i></span
                     ></sup
                 ></a
             >
