@@ -21,7 +21,7 @@
         <p>
             <b class="pr-2">GitHub</b>
             <a href=" " target="_blank" class="text-red-500"
-                >Trần Minh Tiến<sup class=""
+                >Tien Minh Tran<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
                             class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"

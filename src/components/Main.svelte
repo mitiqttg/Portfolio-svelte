@@ -1,6 +1,6 @@
 <script>
     import Step from "./Step.svelte";
-
+    import BackToTop from "./BackToTop.svelte";
     let steps = [
         {
             name: "Smoljames Store",
@@ -62,33 +62,19 @@
                 class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950"
             >
                 <div
-                    class="absolute top-0 right-full w-full h-full bg-red-800 opacity-20 group-hover:translate-x-full z-0 duration-200"
+                    class="absolute top-0 right-full w-full h-full bg-red-900 opacity-50 group-hover:translate-x-full z-0 duration-200"
                 ></div>
-                <h4 class="relative z-9">Get in touch &rarr;</h4>
+                <h4 class="relative z-9">Get in touch</h4>
             </button>
         </div>
-        <div class="relative shadow-2xl grid place-items-center">
+        <div class="relative shadow-xl grid place-items-center">
             <img
                 src={"images/profile-me.png"}
                 alt="Tien Tran"
-                class="object-cover z-[2] max-h-[70vh]"
+                class="object-cover z-[4] max-h-[80vh]"
             />
         </div>
-        <!-- <div  class="flex p-0.5 relative max-w-[700px] w-full mx-auto">
-            <div
-                class="absolute inset-0 overflow-hidden rounded-md flex items-center justify-center"
-            >
-                <div
-                    class="bg-gradient-to-r absolute inset-[-20px]  from-violet-800 to-indigo-800 specialSpin"
-                />
-            </div>
 
-            <img
-                src={"images/zetane-engine.jpeg"}
-                alt="Zetane Engine"
-                class="w-full h-full object-cover z-[2]"
-            />
-        </div> -->
     </section>
     <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
         <div class="flex flex-col gap-2 text-center">
@@ -96,22 +82,22 @@
                 A few of my creative endeavors.
             </h6>
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-                Curious to <span class="poppins text-violet-400">see</span> my work?
+                Curious to <span class="poppins text-red-600">see</span> my work?
             </h3>
         </div>
-        <a
+        <!-- <a
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             target="_blank"
             class="mx-auto px-4 py-2 rounded-md border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-violet-700 duration-200"
         >
             <i class="fa-regular fa-circle-play"></i>
             <p>Watch the video</p>
-        </a>
+        </a> -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
             <Step step={steps[0]}>
                 <p>
                     Smoljames Store is a a merchanising store created with <strong
-                        class="text-violet-400"
+                        class="text-red-600"
                         >Next.js, Commerce.js, Stripe & Node.js + Express.js!</strong
                     > Commerce.js is a product CMS and Stripe is used for all transaction
                     handling.
@@ -120,24 +106,24 @@
             <Step step={steps[1]}>
                 <p>
                     Ultimate Todos is a Full Stack <strong
-                        class="text-violet-400">Next.js</strong
+                        class="text-red-600">Next.js</strong
                     >,
-                    <strong class="text-violet-400">Node.js + Express.js</strong
+                    <strong class="text-red-600">Node.js + Express.js</strong
                     >
-                    & <strong class="text-violet-400">Firebase</strong> CRUD application
+                    & <strong class="text-red-600">Firebase</strong> CRUD application
                     that allows a user to login, manage a tidy and efficacious todo
                     list, and persist this information across devices.
                 </p>
             </Step>
             <Step step={steps[2]}>
                 <p>
-                    The Pokédex is a <strong class="text-violet-400"
+                    The Pokédex is a <strong class="text-red-600"
                         >SvelteKit & TailwindCSS</strong
                     >
                     web application, hosted on
-                    <strong class="text-violet-400">Netlify</strong>, that
+                    <strong class="text-red-600">Netlify</strong>, that
                     consumes and caches the
-                    <strong class="text-violet-400">Pokémon API</strong>
+                    <strong class="text-red-600">Pokémon API</strong>
                     to display all Pokémon information. Gotta catch them all!
                 </p>
             </Step>
@@ -149,13 +135,13 @@
     >
         <!-- <div class="z-[-1] bg-violet-950 w-screen left-1/2 -translate-x-1/2 top-0 h-full absolute"> </div> -->
         <div
-            class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-violet-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-violet-700 py-4"
+            class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-red-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-red-700 py-4"
         >
             <h6 class="text-large sm:text-xl md:text-2xl">
                 Want to know more?
             </h6>
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-                A bit <span class="poppins text-violet-400">about</span> me.
+                A bit <span class="poppins text-red-600">about</span> me.
             </h3>
         </div>
         <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
@@ -261,4 +247,6 @@
         </div>
         <p class="mx-auto">So why not invest?</p>
     </section>
+    <BackToTop />
+
 </main>
