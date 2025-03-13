@@ -10,7 +10,7 @@
 
 <header
     class={"sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between rounded-full border-b border-solid " +
-        (y > 0 ? "py-4 bg-blue-400 border-blue-200" : " py-6 bg-transparent border-transparent")}
+        (y > 0 ? "py-4 bg-blue-900 opacity-88 border-blue-200" : " py-6 bg-transparent border-transparent")}
 >
     <h1 class="font-medium">
          <span class="font-bold poppins">Tien Tran</span>

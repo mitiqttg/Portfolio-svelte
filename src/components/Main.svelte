@@ -32,7 +32,7 @@
         {
             name: "an engineering-driven and creative thinker",
             description:
-                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, I am always thinking about how to make things better, faster, more efficient without sacrifying the fun along the way. My Bachelor's degree in Quantum Technology has helped me develop a strong foundation in scientific and practical approach ",
+                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, you will sure get them with me around. I always think about how to make things better, faster, more efficient without sacrifying the fun along the way. My background in Mathematics and Physics has helped me develop a strong foundation in scientific and practical approach.",
         },
         {
             name: "an excellent communicator",

@@ -25,7 +25,7 @@
   
   <style>
     .back-to-top {
-      opacity: 1;
+      opacity: 0.6;
       border-radius: 100%;
       transition: opacity 0.5s, visibility 0.5s;
       position: fixed;
@@ -37,7 +37,7 @@
       user-select: none;
       bottom: 20px;
       /* animation: bounce 2.8s infinite; */
-      color: rgb(250, 253, 58);
+      color: rgb(255, 255, 255);
       background-color: rgb(28, 25, 247);
     }
     /* .back-to-top:hover span {
@@ -58,9 +58,10 @@
         display: none;
     } */
     
-    .back-to-top:hover:before {
-        content: "Top";
-        animation: bounce 2.8s infinite;
+    .back-to-top:hover {
+      opacity: 0.95;
+      content: "Top";
+      animation: bounce 2.8s infinite;
     }
   </style>
   
