@@ -5,13 +5,12 @@
         { name: "Projects ", link: "#projects" },
         { name: "About me", link: "#about" },
         { name: "Blog", link: "#blog" },
-
     ];
 </script>
 
 <header
     class={"sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between rounded-full border-b border-solid " +
-        (y > 0 ? " py-4 bg-red-950 border-red-950" : " py-6 bg-transparent border-transparent")}
+        (y > 0 ? "py-4 bg-blue-400 border-blue-200" : " py-6 bg-transparent border-transparent")}
 >
     <h1 class="font-medium">
          <span class="font-bold poppins">Tien Tran</span>
@@ -19,7 +18,7 @@
     <div class="sm:flex items-center gap-4 hidden">
         {#each tabs as tab, index}
             <a href={tab.link}
-                class="duration-200 hover:text-red-600"
+                class={"duration-200" + (y > 0 ? "py-4 hover:text-zinc-950" : "py-6 hover:text-blue-400")}
                 target={index === 2 ? "_blank" : ""}
             > <p>{tab.name} </p>
             </a>
@@ -36,7 +35,7 @@
             class="blueShadow relative overflow-hidden px-5 py-2 group rounded-full bg-white text-zinc-950"
         >
             <div
-                class="absolute top-0 right-full w-full h-full bg-red-900 opacity-50 group-hover:translate-x-full z-0 duration-200"
+                class="absolute top-0 right-full w-full h-full bg-blue-500 opacity-50 group-hover:translate-x-full z-0 duration-281"
             ></div>
             <h4 class="relative z-9">Get in touch</h4>
         </button>

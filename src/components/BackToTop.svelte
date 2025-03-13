@@ -33,13 +33,14 @@
       right: 20px;
       width: 60px;
       height: 60px;
+      content: "&uarr;";
       user-select: none;
       bottom: 20px;
-      animation: bounce 2.8s infinite;
-      color: rgb(255, 0, 0);
-      background-color: rgb(255, 255, 255);
+      /* animation: bounce 2.8s infinite; */
+      color: rgb(250, 253, 58);
+      background-color: rgb(28, 25, 247);
     }
-    .back-to-top:hover span {
+    /* .back-to-top:hover span {
         display: none;
         opacity: 1;
         border-radius: 25px;
@@ -55,14 +56,15 @@
         color: rgb(255, 255, 255);
         background-color: rgb(255, 0, 0);
         display: none;
-    }
+    } */
     
     .back-to-top:hover:before {
-        content: "To the top"
+        content: "Top";
+        animation: bounce 2.8s infinite;
     }
   </style>
   
   <svelte:window on:scroll={handleOnScroll} />
   
-  <button type="button" class="back-to-top " on:click={goTop} class:hidden poppins-label="Back to top"><span>&Uarr;</span></button>
+  <button type="button" class="back-to-top animate-bounce" on:click={goTop} class:hidden><span>&uarr;</span></button>
   

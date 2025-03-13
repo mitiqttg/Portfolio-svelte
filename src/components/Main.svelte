@@ -30,9 +30,9 @@
                 "I taught myself to code using free online resources and absolutely fell in love with the creativity and problem solving that is involved in developing and engineering innovative new online experiences. Starting of with JavaScript, HTML & CSS and evolving my knowledge base to include JavaScript frameworks, backend programming, design, cloud services and much much more.",
         },
         {
-            name: "a product design & UX finatic",
+            name: "an engineering-driven and creative thinker",
             description:
-                "Carefully crafting and designing amazing user experiences allows me to express and experiment with every morsel of creativity I have. I love the challenge of learning new design concepts and enabling users with amazing online experiences.",
+                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, I am always thinking about how to make things better, faster, more efficient without sacrifying the fun along the way. My Bachelor's degree in Quantum Technology has helped me develop a strong foundation in scientific and practical approach ",
         },
         {
             name: "an excellent communicator",
@@ -51,18 +51,18 @@
             class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10"
         >
             <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
-                Hi! I'm <span class="poppins text-red-600">Tien</span> Tran
-                <br />Life time
-                <span class="poppins text-red-600">Learner</span>
+                Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
+                <br />Web
+                <span class="poppins text-blue-600">Developer</span>
             </h2>
             <p class="text-base sm:text-lg md:text-xl">
-                My current <span class="text-red-600"> enthusiasm</span> is on AWS Cloud Practice, Full Stack Development and AI! I'm familiar with JavaScript, Python, Node.js, Svelte, TailwindCSS and much more!
+                My current <span class="text-blue-600"> enthusiasm</span> is on AWS, Full Stack Web and AI! I'm familiar with JavaScript, Python, Node.js, Deno, Svelte, TailwindCSS and much more!
             </p>
             <button
                 class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950"
             >
                 <div
-                    class="absolute top-0 right-full w-full h-full bg-red-900 opacity-50 group-hover:translate-x-full z-0 duration-200"
+                    class="absolute top-0 right-full w-full h-full bg-blue-500 opacity-50 group-hover:translate-x-full z-0 duration-281"
                 ></div>
                 <h4 class="relative z-9">Get in touch</h4>
             </button>
@@ -82,22 +82,14 @@
                 A few of my creative endeavors.
             </h6>
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-                Curious to <span class="poppins text-red-600">see</span> my work?
+                Curious to <span class="poppins text-blue-600">see</span> my work?
             </h3>
         </div>
-        <!-- <a
-            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            target="_blank"
-            class="mx-auto px-4 py-2 rounded-md border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-violet-700 duration-200"
-        >
-            <i class="fa-regular fa-circle-play"></i>
-            <p>Watch the video</p>
-        </a> -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
             <Step step={steps[0]}>
                 <p>
                     Smoljames Store is a a merchanising store created with <strong
-                        class="text-red-600"
+                        class="text-blue-600"
                         >Next.js, Commerce.js, Stripe & Node.js + Express.js!</strong
                     > Commerce.js is a product CMS and Stripe is used for all transaction
                     handling.
@@ -106,24 +98,24 @@
             <Step step={steps[1]}>
                 <p>
                     Ultimate Todos is a Full Stack <strong
-                        class="text-red-600">Next.js</strong
+                        class="text-blue-600">Next.js</strong
                     >,
-                    <strong class="text-red-600">Node.js + Express.js</strong
+                    <strong class="text-blue-600">Node.js + Express.js</strong
                     >
-                    & <strong class="text-red-600">Firebase</strong> CRUD application
+                    & <strong class="text-blue-600">Firebase</strong> CRUD application
                     that allows a user to login, manage a tidy and efficacious todo
                     list, and persist this information across devices.
                 </p>
             </Step>
             <Step step={steps[2]}>
                 <p>
-                    The Pokédex is a <strong class="text-red-600"
+                    The Pokédex is a <strong class="text-blue-600"
                         >SvelteKit & TailwindCSS</strong
                     >
                     web application, hosted on
-                    <strong class="text-red-600">Netlify</strong>, that
+                    <strong class="text-blue-600">Netlify</strong>, that
                     consumes and caches the
-                    <strong class="text-red-600">Pokémon API</strong>
+                    <strong class="text-blue-600">Pokémon API</strong>
                     to display all Pokémon information. Gotta catch them all!
                 </p>
             </Step>
@@ -135,13 +127,13 @@
     >
         <!-- <div class="z-[-1] bg-violet-950 w-screen left-1/2 -translate-x-1/2 top-0 h-full absolute"> </div> -->
         <div
-            class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-red-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-red-700 py-4"
+            class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-blue-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-blue-700 py-4"
         >
             <h6 class="text-large sm:text-xl md:text-2xl">
                 Want to know more?
             </h6>
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-                A bit <span class="poppins text-red-600">about</span> me.
+                A bit <span class="poppins text-blue-600">about</span> me.
             </h3>
         </div>
         <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
@@ -149,24 +141,9 @@
         </p>
         <div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
             {#each benefits as benefit, index}
-                <!-- <div class="flex flex-col gap-2 mx-auto">
-                    <div class="flex items-end gap-4">
-                        <p
-                            class="poppins text-6xl sm:text-7xl md:text-8xl text-slate-500 font-medium"
-                        >
-                            {benefit.metric}
-                        </p>
-                        <p
-                            class="text-xl sm:text-2xl md:text-3xl capitalize pb-2"
-                        >
-                            {benefit.name}
-                        </p>
-                    </div>
-                    <p class="text-center italic">- {benefit.description}</p>
-                </div> -->
                 <div class="flex gap-6 sm:gap-8">
                     <p
-                        class="poppins text-4xl sm:text-5xl md:text-6xl text-slate-500 font-semibold"
+                        class="poppins text-4xl sm:text-5xl md:text-6xl text-yellow-400 font-semibold"
                     >
                         0{index + 1}
                     </p>

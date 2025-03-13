@@ -1,7 +1,7 @@
 <footer
-    class="py-20 sm:py-32 bg-black border-t border-solid border-violet-950 flex flex-col gap-4 sm:gap-8 justify-center items-center"
+    class="py-20 sm:py-32 bg-black border-t border-solid border-blue-800 flex flex-col gap-4 sm:gap-8 justify-center items-center"
 >
-    <p class="px-4 py-2 bg-white text-slate-950 font-medium">
+    <p class="px-4 py-2 rounded-full bg-white text-zinc-950 font-medium">
         Connect with me &darr;
     </p>
     <div class="flex flex-col gap-4 items-center justify-center">
@@ -20,7 +20,7 @@
         <p><b class="pr-2">Email</b> minhtien2812000@gmail.com</p>
         <p>
             <b class="pr-2">GitHub</b>
-            <a href=" " target="_blank" class="text-red-500"
+            <a href="https://github.com/mitiqttg" target="_blank" class="text-red-500"
                 >Tien Minh Tran<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
@@ -32,7 +32,7 @@
         </p>
         <p>
             <b class="pr-2">LinkedIn</b>
-            <a href=" " target="_blank" class="text-red-500"
+            <a href="" target="_blank" class="text-red-500"
                 >Tien Tran<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
