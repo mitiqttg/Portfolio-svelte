@@ -9,8 +9,8 @@
 </script>
 
 <header
-    class={"sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between rounded-full border-b border-solid " +
-        (y > 0 ? "py-4 bg-blue-900 opacity-88 border-blue-200" : " py-6 bg-transparent border-transparent")}
+    class={"sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between rounded-full border-b  " +
+        (y > 0 ? "py-4 bg-blue-900 opacity-88 border-transparent" : " py-6 bg-transparent border-transparent")}
 >
     <h1 class="font-medium">
          <span class="font-bold poppins">Tien Tran</span>
@@ -18,7 +18,7 @@
     <div class="sm:flex items-center gap-4 hidden">
         {#each tabs as tab, index}
             <a href={tab.link}
-                class={"duration-200" + (y > 0 ? "py-4 hover:text-zinc-950" : "py-6 hover:text-blue-400")}
+                class={"duration-200" + (y > 0 ? "py-4 hover:text-yellow-300" : "py-6 hover:text-blue-400")}
                 target={index === 2 ? "_blank" : ""}
             > <p>{tab.name} </p>
             </a>

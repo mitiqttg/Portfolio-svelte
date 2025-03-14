@@ -27,12 +27,12 @@
             metric: "10x",
             name: "a self taught developer",
             description:
-                "I taught myself to code using free online resources and absolutely fell in love with the creativity and problem solving that is involved in developing and engineering innovative new online experiences. Starting of with JavaScript, HTML & CSS and evolving my knowledge base to include JavaScript frameworks, backend programming, design, cloud services and much much more.",
+                "I learn to code from online material and absolutely fell in love with the possibility of how software can connect, assist, entertain, and enhance our everyday life. Starting of with Scala, Python, JavaScript, HTML & CSS and evolving my knowledge base to include OOP, web frameworks, ML, cloud services and much much more.",
         },
         {
             name: "an engineering-driven and creative thinker",
             description:
-                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, you will sure get them with me around. I always think about how to make things better, faster, more efficient without sacrifying the fun along the way. My background in Mathematics and Physics has helped me develop a strong foundation in scientific and practical approach.",
+                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, you will sure get them with me around. I always think about how to make things better, faster, more efficient without sacrifying the fun along the way. My background in Mathematics and Physics has helped me develop a strong foundation in practical approach that backed by science.",
         },
         {
             name: "an excellent communicator",
@@ -52,7 +52,7 @@
         >
             <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
                 Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
-                <br />Web
+                <br />Full Stack
                 <span class="poppins text-blue-600">Developer</span>
             </h2>
             <p class="text-base sm:text-lg md:text-xl">
