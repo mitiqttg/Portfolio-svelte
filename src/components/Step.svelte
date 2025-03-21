@@ -16,9 +16,9 @@
         {step.name}
     </h3>
     <slot />
-    <div class="flex-1 flex justify-betweeen gap-4  items-end">
+    <div class="flex-1 flex justify-betweeen gap-4 items-end">
         <div
-            class="ml-auto cursor-pointer  rounded-full hover:text-zinc-950 duration-200 relative after:absolute after:top-0 after:h-0 after:right-full after:bg-white after:w-full after:h-full after:duration-200 hover:after:translate-x-full after:z-[-1] overflow-hidden"
+            class="ml-auto cursor-pointer rounded-full hover:text-zinc-950 duration-200 relative after:absolute after:top-0 after:h-0 p-2 after:right-full after:bg-white after:w-full after:h-full after:duration-200 hover:after:translate-x-full after:z-[-1] overflow-hidden px-4"
         >
             <p class="z-4">Go to &rarr;</p>
         </div>

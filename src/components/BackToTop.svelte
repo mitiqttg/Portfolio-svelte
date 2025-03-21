@@ -36,27 +36,9 @@
       content: "&uarr;";
       user-select: none;
       bottom: 20px;
-      /* animation: bounce 2.8s infinite; */
       color: rgb(255, 255, 255);
-      background-color: rgb(28, 25, 247);
+      background-color: rgb(0, 153, 254);
     }
-    /* .back-to-top:hover span {
-        display: none;
-        opacity: 1;
-        border-radius: 25px;
-        transition: opacity 0.5s, visibility 0.5s;
-        position: fixed;
-        z-index: 99;
-        right: 20px;
-        width: 120px;
-        height: 60px;
-        user-select: none;
-        bottom: 20px;
-        animation: bounce 2.8s infinite;
-        color: rgb(255, 255, 255);
-        background-color: rgb(255, 0, 0);
-        display: none;
-    } */
     
     .back-to-top:hover {
       opacity: 0.95;

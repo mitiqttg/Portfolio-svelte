@@ -17,10 +17,10 @@
         </div>
         <p class="mx-auto text-sm opacity-70">or</p>
         <p class="">Hugh_jass@gmail.com</p> -->
-        <p><b class="pr-2">Email</b> minhtien2812000@gmail.com</p>
+        <p><b class="pr-2">Email</b> <a class="text-yellow-400" href="mailto:minhtien2812000@gmail.com">minhtien2812000@gmail.com</a></p>
         <p>
             <b class="pr-2">GitHub</b>
-            <a href="https://github.com/mitiqttg" target="_blank" class="text-red-500"
+            <a href="https://github.com/mitiqttg" target="_blank" class="text-yellow-500"
                 >Tien Minh Tran<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
@@ -30,9 +30,9 @@
                 ></a
             >
         </p>
-        <p>
+        <!-- <p>
             <b class="pr-2">LinkedIn</b>
-            <a href="" target="_blank" class="text-red-500"
+            <a href="" target="_blank" class="text-yellow-500"
                 >Tien Tran<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
                         ><i
@@ -41,6 +41,6 @@
                     ></sup
                 ></a
             >
-        </p>
+        </p> -->
     </div>
 </footer>

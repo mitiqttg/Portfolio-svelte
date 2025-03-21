@@ -3,22 +3,22 @@
     import BackToTop from "./BackToTop.svelte";
     let steps = [
         {
-            name: "Smoljames Store",
-            icon: "fa-solid fa-cart-shopping",
-            description:
-                "Smoljames Store is a a merchanising store created with Next.js, Commerce.js & Stripe! Commerce.js is a CMS for managing project and Stripe is used for all transaction handling.",
-        },
-        {
-            name: "Utlimate Todos",
+            name: "Quizard",
             icon: "fa-solid fa-list-check",
             description:
-                "Test for model robustness with customized test profiles and receive exhaustive reporting on the performance and potential vulnerabilities of your model.",
+                "A quiz app that helps you practice with a variety of questions and topics. You can also create your own quizzes and share them with others.",
         },
         {
-            name: "Pokédex",
+            name: "Shopping list",
+            icon: "fa-solid fa-cart-shopping",
+            description:
+                "A shopping list you can add, edit, and delete items from. You can also mark items as bought or not bought - just like a simple Notion toggle list.",
+        },
+        {
+            name: "Pet rescue",
             icon: "fa-solid fa-diagram-project",
             description:
-                "Augment your datasets with our filters and dataset manipulations to ensure your models are trained on the highest quality datasets (coming soon).",
+                "A pet rescue app that helps you find pets in need of a home. You can adopt, raise help for your pet, or look for a caretaker for them during holidays. Currently in development.",
         },
     ];
 
@@ -27,12 +27,12 @@
             metric: "10x",
             name: "a self taught developer",
             description:
-                "I learn to code from online material and absolutely fell in love with the possibility of how software can connect, assist, entertain, and enhance our everyday life. Starting of with Scala, Python, JavaScript, HTML & CSS and evolving my knowledge base to include OOP, web frameworks, ML, cloud services and much much more.",
+                "I learn to code from online material and absolutely fell in love with the possibility of how software can connect, assist, entertain, and enhance our everyday life. Starting of with Scala, Python, JavaScript, HTML & CSS and evolving my knowledge base to include OOP, ML, web frameworks, cloud services and much more.",
         },
         {
             name: "an engineering-driven and creative thinker",
             description:
-                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, you will sure get them with me around. I always think about how to make things better, faster, more efficient without sacrifying the fun along the way. My background in Mathematics and Physics has helped me develop a strong foundation in practical approach that backed by science.",
+                "Always come up with the most outside-the-box solutions to problems or the weirdest ideas ever, you will sure get them with me around. I always think about how to make things better, faster, more efficient and enjoy the fun along the way. My background in Mathematics and Physics has helped me develop a strong foundation in practical approach that backed by science.",
         },
         {
             name: "an excellent communicator",
@@ -62,7 +62,7 @@
                 class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950"
             >
                 <div
-                    class="absolute top-0 right-full w-full h-full bg-blue-500 opacity-50 group-hover:translate-x-full z-0 duration-281"
+                    class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"
                 ></div>
                 <h4 class="relative z-9">Get in touch</h4>
             </button>
@@ -88,11 +88,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
             <Step step={steps[0]}>
                 <p>
-                    Smoljames Store is a a merchanising store created with <strong
-                        class="text-blue-600"
-                        >Next.js, Commerce.js, Stripe & Node.js + Express.js!</strong
-                    > Commerce.js is a product CMS and Stripe is used for all transaction
-                    handling.
+                    A quiz app made with <strong
+                    class="text-blue-600"
+                    >Node.js, PostgreSQL, Flyway, and Docker</strong> , helps you practice with a variety of questions and topics. You can create your own quizzes for different topics and share them with others."
                 </p>
             </Step>
             <Step step={steps[1]}>
