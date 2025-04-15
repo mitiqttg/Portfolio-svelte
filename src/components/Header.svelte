@@ -1,6 +1,5 @@
 <script>
     export let y;
-
     export let tabs = [
         { name: "Projects ", link: "#projects" },
         { name: "About me", link: "#about" },
@@ -20,7 +19,7 @@
             <a href={tab.link}
                 class={"duration-200" + (y > 0 ? "py-4 hover:text-yellow-300" : "py-6 hover:text-blue-400")}
                 target={index === 2 ? "_blank" : ""}
-            > <p>{tab.name} </p>
+            > <p>{tab.name}</p>
             </a>
         {/each}
         <button
