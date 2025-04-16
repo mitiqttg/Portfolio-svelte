@@ -1,10 +1,41 @@
 <script>
-  import Step from './Step.svelte';
-  import BackToTop from './BackToTop.svelte';
-  import { tweened } from 'svelte/motion';
-  import TechStackSphere from './TechStackSphere.svelte'; // Import the new component
+    import Step from "./Step.svelte";
+    import BackToTop from "./BackToTop.svelte";
+    import { onMount, onDestroy } from "svelte";
+  
+    // Clockwise path for 5x2 grid
+    const path = [
+      [0, 0], [1, 0], [2, 0], [3, 0], [4, 0],
+      [4, 1], [3, 1], [2, 1], [1, 1], [0, 1]
+    ];
+    
+    let techs = [
+      { name: "HTML", icon: "/images/html-icon.svg" },
+      { name: "CSS", icon: "/images/css-icon.svg" },
+      { name: "JavaScript", icon: "/images/javascript-icon.svg" },
+      { name: "Svelte", icon: "/images/svelte-icon.svg" },
+      { name: "TailwindCSS", icon: "/images/tailwind-css-icon.svg" },
+      { name: "Node.js", icon: "/images/node-js-icon.svg" },
+      { name: "Python", icon: "/images/python-icon.svg" },
+      { name: "AWS", icon: "fa-brands fa-aws" },
+      { name: "Docker", icon: "/images/docker-icon.svg" },
+      { name: "MongoDB", icon: "/images/mongodb-icon.svg" }
+    ];
+  
+    let positions = techs.map((_, i) => i); // Initial positions match path indices
+  
+    function rotatePositions() {
+      positions = [positions[positions.length - 1], ...positions.slice(0, -1)];
+    }
+  
+    let interval;
+    onMount(() => {
+      interval = setInterval(rotatePositions, 1500); // rotate every 1.5s
+    });
+  
+    onDestroy(() => clearInterval(interval));
 
-  let steps = [
+    let steps = [
     {
       name: 'Quizard',
       icon: 'fa-solid fa-list-check',
@@ -43,72 +74,66 @@
         "Communication is key and it's a paramount value of mine. I believe in transparency and constructive communication above all else. This helps me develop deep relationships and ensures my effectiveness and productivity in any work space with any team.",
     },
   ];
-
-  let techs = [
-    { name: 'HTML', icon: 'fa-brands fa-html5', color: 'orange-500' },
-    { name: 'CSS', icon: 'fa-brands fa-css3-alt', color: 'blue-500' },
-    { name: 'JavaScript', icon: 'fa-brands fa-js', color: 'yellow-500' },
-    { name: 'Svelte', icon: 'fa-brands fa-svelte', color: 'red-500' },
-    { name: 'TailwindCSS', icon: 'fa-solid fa-wind', color: 'teal-500' },
-    { name: 'Node.js', icon: 'fa-brands fa-node-js', color: 'green-500' },
-    { name: 'Python', icon: 'fa-brands fa-python', color: 'yellow-600' },
-    { name: 'Scala', icon: 'fa-brands fa-java', color: 'red-600' },
-    { name: 'AWS', icon: 'fa-brands fa-aws', color: 'orange-600' },
-    { name: 'Docker', icon: 'fa-brands fa-docker', color: 'blue-600' },
-  ];
-
-  let positions = [
-    { x: 0, y: 0 }, // Initial position
-    { x: -100, y: 0 }, // Move left
-    { x: -100, y: -100 }, // Move up
-    { x: 0, y: -100 }, // Move right
-    { x: 0, y: 0 }, // Move down
-    { x: 100, y: 0 }, // Move right
-    { x: 100, y: 100 }, // Move down
-    { x: 0, y: 100 }, // Move left
-  ];
-
-  let animProgress = tweened(0, {
-    duration: 4000, // Total animation duration (4 seconds)
-    loop: true, // Repeat the animation indefinitely
-  });
-</script>
-
-<main class="flex flex-col flex-1 p-4">
-  <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
-    <div class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
-      <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
-        Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
-        <br />Full Stack
-        <span class="poppins text-blue-600">Developer</span>
-      </h2>
-      <p class="text-base sm:text-lg md:text-xl">
-        My current <span class="text-blue-600"> enthusiasm</span> is on AWS, Full Stack Web and AI! I'm familiar with JavaScript, Python, Node.js, Deno, Svelte, TailwindCSS and much more!
-      </p>
-      <button
-        class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950"
-      >
-        <div
-          class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"
-        ></div>
-        <h4 class="relative z-9">Get in touch</h4>
-      </button>
-    </div>
-    <div class="relative shadow-xl grid place-items-center">
-      <img src={'images/profile-me.png'} alt="Tien Tran" class="object-cover z-[4] max-h-[80vh]" />
-    </div>
-  </section>
-
-  <section id="tech-stack" class="py-12 lg:py-24">
-    <div
-      class="mx-auto w-full max-w-lg relative rounded-lg border-2 border-blue-500 hover:border-blue-300 duration-20 flex items-center justify-center"
-      style="aspect-ratio: 2.2 / 1;"
-    >
-      <TechStackSphere {techs} />
-    </div>
-  </section>
-
-  <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
+  </script>
+  
+  <style>
+    .tech-icon {
+      transition: top 0.8s ease-in-out, left 0.8s ease-in-out;
+    }
+  </style>
+  
+  <main class="flex flex-col flex-1 p-4">
+    <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
+      <!-- Left Column -->
+      <div class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
+        <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
+          Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
+          <br />Full Stack <span class="poppins text-blue-600">Developer</span>
+        </h2>
+  
+        <p class="text-base sm:text-lg md:text-xl">
+          My current <span class="text-blue-600">enthusiasm</span> is on AWS, Full Stack Web and AI! I'm familiar with JavaScript, Python, Node.js, Deno, Svelte, TailwindCSS and much more!
+        </p>
+  
+        <!-- Tech Icon Animation Grid -->
+        <div class="relative mx-auto w-full max-w-lg aspect-[2.5/1] border-2 border-blue-500 rounded-lg overflow-hidden">
+          <div class="w-full h-full relative">
+            {#each techs as tech, i}
+              {#key positions[i]}
+                <div
+                  class="absolute tech-icon flex items-center justify-center text-3xl"
+                  style="
+                    top: {path[positions[i]][1] * 50}%;
+                    left: {path[positions[i]][0] * 20}%;
+                    width: 20%;
+                    height: 50%;
+                  "
+                >
+                  {#if tech.icon.startsWith("fa-")}
+                    <i class={tech.icon}></i>
+                  {:else}
+                    <img src={tech.icon} alt={tech.name} class="h-10 w-10" />
+                  {/if}
+                </div>
+              {/key}
+            {/each}
+          </div>
+        </div>
+  
+        <!-- Call to Action Button -->
+        <button
+          class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950">
+          <div class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"></div>
+          <h4 class="relative z-9">Get in touch</h4>
+        </button>
+      </div>
+  
+      <!-- Right Column - Profile Image -->
+      <div class="relative shadow-xl grid place-items-center">
+        <img src="images/profile-me.png" alt="Tien Tran" class="object-cover z-[4] max-h-[80vh]" />
+      </div>
+    </section>
+    <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
     <div class="flex flex-col gap-2 text-center">
       <h6 class="text-large sm:text-xl md:text-2xl">A few of my creative endeavors.</h6>
       <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
@@ -215,3 +240,4 @@
   </section>
   <BackToTop />
 </main>
+  
