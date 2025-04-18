@@ -3,21 +3,7 @@
     import BackToTop from "./BackToTop.svelte";
     import { onMount, onDestroy } from "svelte";
     import { flip } from 'svelte/animate';
-    import Loading from './Loading.svelte';
 
-    let isLoading = true;
-
-    onMount(() => {
-      // Hide loading when page is fully loaded
-      window.addEventListener('load', () => {
-        isLoading = false;
-      });
-
-      // Fallback in case load event doesn't fire
-      setTimeout(() => {
-        isLoading = false;
-      }, 3000);
-    });
     // Clockwise path for 5x2 grid
     const path = [
         [0, 0], [1, 0], [2, 0], [3, 0], [4, 0],
@@ -139,72 +125,56 @@
     to { transform: translateX(0); }
     }
 
-    .animate-slide-in {
-    animation: slideIn 1s ease-out forwards;
-    }
-
 
 </style>
 
-<Loading {isLoading} />
-<main class="flex flex-col flex-1 p-4" class:hidden={isLoading}>
-
+<main class="flex flex-col flex-1 p-4" >
     <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
         <!-- Left Column -->
-        <div class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
-            <h2 class=" text-4xl sm:text-5xl md:text-6xl">
-                Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
-                <br />
-                <span class="inline-flex items-center gap-4 mt-4">
-                  <!-- Animated box -->
-                    <div class="inline-block border-2 border-gray-800 rounded-lg overflow-hidden h-[2.2em] min-w-[180px]">
-                        <div class="overflow-hidden leading-tight text-base sm:text-lg">
-                        <div class="animate-slide-in pl-2 pr-4 py-1">On my way</div>
-                        </div>
-                        <div class="overflow-hidden leading-tight text-base sm:text-lg">
-                        <div class="animate-slide-in pl-2 pr-4 py-1">to become</div>
-                        </div>
-                    </div>
-                  <!-- Big text -->
-                  <span class="poppins text-blue-600">Software Developer</span>
-                </span>
-              </h2>
-
-        <p class="text-base sm:text-lg md:text-xl">
-            I love sports and books. Currently exploring web development, cloud computing, and machine learning. I am always looking for new challenges and opportunities to grow my skills.
-        </p>
-
-        <!-- Tech Icon Animation Grid -->
-        <div class="relative mx-auto w-full max-w-lg p-5 aspect-[2.5/1] rounded-lg overflow-hidden">
+        <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
+          <h2 class=" text-4xl sm:text-5xl md:text-6xl">
+            Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
+            <br />
+            <span class="inline-flex items-center gap-4 mt-4">
+              <!-- Big text -->
+              <span class="poppins text-blue-600 font-bold">Software Developer</span>
+            </span>
+          </h2>
+          <p class="text-base sm:text-lg md:text-xl">
+            Currently, I'm exploring <span class="poppins text-blue-600 font-bold">WebDev</span> and <span class="poppins text-blue-600 font-bold">Cloud Computing</span> <br />
+            I love solving challenges and helping people around me <br />
+            You will mostly find me playing sports in my free time
+          </p>
+          <!-- Tech Icon Animation Grid -->
+          <div class="relative w-full max-w-lg p-5 aspect-[2.5/1] rounded-lg overflow-hidden">
             <div class="tech-grid">
-            {#each positions as pos, i (techs[pos].id)}
-                <div class="tech-item" animate:flip={{ duration: 800 }}
-                    style="
-                        top: {path[i][1] * 50}%;
-                        left: {path[i][0] * 20}%;
-                        width: 20%;
-                        height: 50%;
-                        z-index: {i === positions.length - 1 ? 10 : 1};
-                    "
-                >
-                    <div class="tech-container">
-                        {#if techs[pos].icon.startsWith("fa-")}
-                            <i class={`${techs[pos].icon} tech-icon`}></i>
-                        {:else}
-                            <img src={techs[pos].icon} alt={techs[pos].name} class="tech-icon" />
-                        {/if}
-                    </div>
-                </div>
-            {/each}
+              {#each positions as pos, i (techs[pos].id)}
+                  <div class="tech-item" animate:flip={{ duration: 800 }}
+                      style="
+                          top: {path[i][1] * 50}%;
+                          left: {path[i][0] * 20}%;
+                          width: 20%;
+                          height: 50%;
+                          z-index: {i === positions.length - 1 ? 10 : 1};
+                      "
+                  >
+                      <div class="tech-container">
+                          {#if techs[pos].icon.startsWith("fa-")}
+                              <i class={`${techs[pos].icon} tech-icon`}></i>
+                          {:else}
+                              <img src={techs[pos].icon} alt={techs[pos].name} class="tech-icon" />
+                          {/if}
+                      </div>
+                  </div>
+              {/each}
             </div>
-        </div>
-
-        <!-- Call to Action Button -->
-        <button
-            class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950">
-            <div class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"></div>
-            <h4 class="relative z-9">Get in touch</h4>
-        </button>
+          </div>
+          <!-- Call to Action Button -->
+          <button
+              class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950">
+              <div class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"></div>
+              <h4 class="relative z-9">Get in touch</h4>
+          </button>
         </div>
 
         <!-- Right Column - Profile Image -->
