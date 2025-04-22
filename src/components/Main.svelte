@@ -76,62 +76,93 @@
             "Communication is key and it's a paramount value of mine. I believe in transparency and constructive communication above all else. This helps me develop deep relationships and ensures my effectiveness and productivity in any work space with any team.",
         },
     ];
+
+    function scrollToContact() {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 </script>
 
-    <style>
-    .tech-grid {
-        position: relative;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .tech-item {
-        position: absolute;
-        transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        will-change: transform;
-    }
-    
-    .tech-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0);
-        border: 2px solid #0e71e9;
-        border-radius: 15px;
-        box-shadow: 0 4px 4px rgba(68, 208, 243, 0.1);
-        width: 85%;
-        height: 85%;
-        transition: all 0.3s ease;
-        overflow: hidden;
-    }
-    
-    .tech-container:hover {
-        transform: scale(1.05);
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 0 15px rgba(121, 181, 253, 0.973);
-    }
-    
-    .tech-icon {
-        max-width: 50%;
-        max-height: 50%;
-        transition: transform 0.3s ease;
-    }
-    
-    .tech-container:hover .tech-icon {
-        transform: scale(1.1);
-    }
-    @keyframes slideIn {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-    }
+<style>
+  .tech-grid {
+      position: relative;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .tech-item {
+      position: absolute;
+      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      will-change: transform;
+  }
+  
+  .tech-container {
+      position: relative;  /* Added for label positioning */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0);
+      border: 2px solid #0e71e9;
+      border-radius: 15px;
+      box-shadow: 0 4px 4px rgba(68, 208, 243, 0.1);
+      width: 85%;
+      height: 85%;
+      transition: all 0.3s ease;
+      overflow: hidden;
+  }
+  
+  .tech-container:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 15px rgba(121, 181, 253, 0.973);
+  }
+  
+  .tech-icon {
+      max-width: 50%;
+      max-height: 50%;
+      transition: transform 0.3s ease;
+  }
+  
+  .tech-container:hover .tech-icon {
+      transform: scale(1.1);
+  }
 
+  /* Add these new styles for labels */
+  .tech-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(14, 113, 233, 0.9);
+      color: white;
+      padding: 0.25rem;
+      font-size: 0.75rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+      pointer-events: none;
+      border-radius: 0 0 12px 12px;
+  }
 
+  .tech-container:hover .tech-label {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+  }
 </style>
 
 <main class="flex flex-col flex-1 p-4" >
     <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
         <!-- Left Column -->
-        <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10">
+        <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10 lg:pl-12">
+
           <h2 class=" text-4xl sm:text-5xl md:text-6xl">
             Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
             <br />
@@ -140,40 +171,45 @@
               <span class="poppins text-blue-600 font-bold">Software Developer</span>
             </span>
           </h2>
-          <p class="text-base sm:text-lg md:text-xl">
+          <p class="text-base sm:text-lg md:text-xl lg:pl-[1px]">
+
             Currently, I'm exploring <span class="poppins text-blue-600 font-bold">WebDev</span> and <span class="poppins text-blue-600 font-bold">Cloud Computing</span> <br />
             I love solving challenges and helping people around me <br />
             You will mostly find me playing sports in my free time
           </p>
           <!-- Tech Icon Animation Grid -->
-          <div class="relative w-full max-w-lg p-5 aspect-[2.5/1] rounded-lg overflow-hidden">
+          <div class="relative w-full max-w-lg p-5 aspect-[2.5/1] mx-auto lg:mx-0 lg:mr-auto lg:pl-0">
+
             <div class="tech-grid">
-              {#each positions as pos, i (techs[pos].id)}
-                  <div class="tech-item" animate:flip={{ duration: 800 }}
-                      style="
-                          top: {path[i][1] * 50}%;
-                          left: {path[i][0] * 20}%;
-                          width: 20%;
-                          height: 50%;
-                          z-index: {i === positions.length - 1 ? 10 : 1};
-                      "
-                  >
-                      <div class="tech-container">
-                          {#if techs[pos].icon.startsWith("fa-")}
-                              <i class={`${techs[pos].icon} tech-icon`}></i>
-                          {:else}
-                              <img src={techs[pos].icon} alt={techs[pos].name} class="tech-icon" />
-                          {/if}
-                      </div>
-                  </div>
-              {/each}
+                {#each positions as pos, i (techs[pos].id)}
+                    <div class="tech-item" animate:flip={{ duration: 800 }}
+                        style="
+                            top: {path[i][1] * 50}%;
+                            left: {path[i][0] * 20}%;
+                            width: 20%;
+                            height: 50%;
+                            z-index: {i === positions.length - 1 ? 10 : 1};
+                        ">
+                        <div class="tech-container">
+                            {#if techs[pos].icon.startsWith("fa-")}
+                                <i class={`${techs[pos].icon} tech-icon`}></i>
+                            {:else}
+                                <img src={techs[pos].icon} alt={techs[pos].name} class="tech-icon" />
+                            {/if}
+                            <div class="tech-label">
+                                {techs[pos].name}
+                            </div>
+                        </div>
+                    </div>
+                {/each}
             </div>
-          </div>
+        </div>
           <!-- Call to Action Button -->
           <button
+            on:click={scrollToContact} 
               class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950">
               <div class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"></div>
-              <h4 class="relative z-9">Get in touch</h4>
+              <h4 class="relative z-9">Download CV</h4>
           </button>
         </div>
 
