@@ -3,10 +3,11 @@
     class="py-20 sm:py-32 bg-black border-t border-solid border-blue-800 flex flex-col gap-4 sm:gap-8 justify-center items-center"
 >
     <p class="px-4 py-2 rounded-full bg-white text-zinc-950 font-medium">
-        Connect with me &darr;
+        Connect with me
     </p>
-    <div class="flex flex-col gap-4 items-center justify-center">
+    <div class="flex flex-col gap-4 items-center justify-left">
         <p><b class="pr-2">Email</b> <a class="text-yellow-400" href="mailto:minhtien2812000@gmail.com">minhtien2812000@gmail.com</a></p>
+        <p><b class="pr-2">Instagram</b> <a class="text-yellow-400" href="https://www.instagram.com/mitifromqt">mitifromqt</a></p>
         <p>
             <b class="pr-2">GitHub</b>
             <a href="https://github.com/mitiqttg" target="_blank" class="text-yellow-500"
@@ -16,8 +17,8 @@
                             class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
                         ></i></span
                     ></sup
-                ></a
-            >
+                >
+            </a>
         </p>
     </div>
 </footer>

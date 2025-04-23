@@ -83,6 +83,15 @@
             contactSection.scrollIntoView({ behavior: 'smooth' });
         }
     }
+    function downloadCV() {
+        const link = document.createElement('a');
+        link.href = '/static/assets/mitiCV.pdf'; 
+        link.download = 'mitiCV.pdf'; // Suggested filename
+        link.target = '_blank'; // Open in new tab, optional
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
 </script>
 
 <style>
@@ -164,16 +173,16 @@
         <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10 lg:pl-12">
 
           <h2 class=" text-4xl sm:text-5xl md:text-6xl">
-            Hi! I'm <span class="poppins text-blue-600">Tien</span> Tran
+            Hi! I'm <span class="poppins text-blue-500">Tien</span> Tran
             <br />
             <span class="inline-flex items-center gap-4 mt-4">
               <!-- Big text -->
-              <span class="poppins text-blue-600 font-bold">Software Developer</span>
+              <span class="poppins text-blue-500">Software Developer</span>
             </span>
           </h2>
           <p class="text-base sm:text-lg md:text-xl lg:pl-[1px]">
 
-            Currently, I'm exploring <span class="poppins text-blue-600 font-bold">WebDev</span> and <span class="poppins text-blue-600 font-bold">Cloud Computing</span> <br />
+            Currently, I'm exploring <span class="poppins text-blue-500 ">WebDev</span> and <span class="poppins text-blue-500 ">Cloud Computing</span> <br />
             I love solving challenges and helping people around me <br />
             You will mostly find me playing sports in my free time
           </p>
@@ -205,12 +214,12 @@
             </div>
         </div>
           <!-- Call to Action Button -->
-          <button
-            on:click={scrollToContact} 
-              class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950">
-              <div class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"></div>
-              <h4 class="relative z-9">Download CV</h4>
-          </button>
+            <button
+              on:click={downloadCV} 
+                class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-gray-950">
+                <div class="absolute top-0 right-full w-full h-full bg-yellow-400 opacity-50 group-hover:translate-x-full z-0 duration-281"></div>
+                <h4 class="relative z-9">Download CV</h4>
+            </button>
         </div>
 
         <!-- Right Column - Profile Image -->
@@ -276,7 +285,7 @@
       {/each}
     </div>
     <h5 class={' text-2xl sm:text-3xl font-semibold text-center poppins '}>
-      The <span class="text-violet-400">Complete</span> Package
+      The <span class="text-blue-600">Complete</span> Package
     </h5>
     <div class="flex flex-col overflow-x-scroll gap-10 max-w-[800px] mx-auto w-full">
       <table class="bg-white text-slate-700 rounded text-center">
@@ -286,7 +295,7 @@
             <th class="whitespace-nowrap p-2 px-4">Candidate #1</th>
             <th class="whitespace-nowrap p-2 px-4">Candidate #2</th>
             <th class="whitespace-nowrap p-2 px-4">Candidate #3</th>
-            <th class="bg-violet-700 text-white whitespace-nowrap p-4 px-8">Me</th>
+            <th class="bg-blue-600 text-white whitespace-nowrap p-4 px-8">Me</th>
           </tr>
         </thead>
         <tbody>
