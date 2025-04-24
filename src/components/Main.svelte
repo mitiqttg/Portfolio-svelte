@@ -4,7 +4,6 @@
     import { onMount, onDestroy } from "svelte";
     import { flip } from 'svelte/animate';
 
-    // Clockwise path for 5x2 grid
     const path = [
         [0, 0], [1, 0], [2, 0], [3, 0], [4, 0],
         [4, 1], [3, 1], [2, 1], [1, 1], [0, 1]
@@ -23,7 +22,6 @@
         { name: "MongoDB", icon: "/images/mongodb-icon.svg", id: 10 }
     ];
 
-    // Initial positions match path indices
     let positions = techs.map((_, i) => i); 
 
     function rotatePositions() {
@@ -43,18 +41,21 @@
             icon: 'fa-solid fa-list-check',
             description:
             'A quiz app made with <strong>Node.js, PostgreSQL, Flyway, and Docker</strong>, helps you practice with a variety of questions and topics. You can create your own quizzes for different topics and share them with others.',
+            href: 'https://github.com/mitiqttg/Quizard-of-Oz',
         },
         {
             name: 'Shopping list',
             icon: 'fa-solid fa-cart-shopping',
             description:
             'Ultimate Todos is a Full Stack <strong>Next.js</strong>, <strong>Node.js + Express.js</strong> & <strong>Firebase</strong> CRUD application that allows a user to login, manage a tidy and efficacious todo list, and persist this information across devices.',
+            href: 'https://github.com/mitiqttg/shoppingListsPage',
         },
         {
-            name: 'Pet rescue',
-            icon: 'fa-solid fa-diagram-project',
+            name: 'Rusty run!',
+            icon: 'fa-brands fa-rust',
             description:
-            'The Pokédex is a <strong>SvelteKit & TailwindCSS</strong> web application, hosted on <strong>Netlify</strong>, that consumes and caches the <strong>Pokémon API</strong> to display all Pokémon information. Gotta catch them all!',
+            'A lone yellow arrow (representing the player), must outmaneuver hordes of relentless purple octopus aliens.  Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong>Rust</strong> and run on your IDE terminal.',
+            href: 'https://github.com/mitiqttg/Rust-game-project',
         },
     ];
 
@@ -171,7 +172,6 @@
     <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
         <!-- Left Column -->
         <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10 lg:pl-12">
-
           <h2 class=" text-4xl sm:text-5xl md:text-6xl">
             Hi! I'm <span class="poppins text-blue-500">Tien</span> Tran
             <br />
@@ -181,7 +181,6 @@
             </span>
           </h2>
           <p class="text-base sm:text-lg md:text-xl lg:pl-[1px]">
-
             Currently, I'm exploring <span class="poppins text-blue-500 ">WebDev</span> and <span class="poppins text-blue-500 ">Cloud Computing</span> <br />
             I love solving challenges and helping people around me <br />
             You will mostly find me playing sports in my free time
@@ -239,24 +238,18 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
       <Step step={steps[0]}>
         <p>
-          A quiz app made with <strong class="text-blue-600">Node.js, PostgreSQL, Flyway, and Docker</strong>, helps you
-          practice with a variety of questions and topics. You can create your own quizzes for different topics and share
-          them with others."
+          A quiz app made with <strong class="text-blue-600">Deno</strong>, <strong class="text-blue-600">PostgreSQL</strong>, <strong class="text-blue-600">Flyway</strong>, and <strong class="text-blue-600">Docker</strong>, which helps you
+          practice with a variety of questions and topics that you can create and share with others. There are login and register mechanism using <strong class="text-blue-600">bcrypt</strong> hashing to protect user credentials.
         </p>
       </Step>
       <Step step={steps[1]}>
         <p>
-          Ultimate Todos is a Full Stack <strong class="text-blue-600">Next.js</strong>,
-          <strong class="text-blue-600">Node.js + Express.js</strong> & <strong class="text-blue-600">Firebase</strong>
-          CRUD application that allows a user to login, manage a tidy and efficacious todo list, and persist this
-          information across devices.
+          A web application for managing shopping lists and their items with basic <strong class="text-blue-600">CRUD</strong> functions. The application is containerized with <strong class="text-blue-600">Docker</strong> for easy local deployment, and includes end-to-end testing with <strong class="text-blue-600">Playwright</strong>.
         </p>
       </Step>
       <Step step={steps[2]}>
         <p>
-          The Pokédex is a <strong class="text-blue-600">SvelteKit & TailwindCSS</strong> web application, hosted on
-          <strong class="text-blue-600">Netlify</strong>, that consumes and caches the
-          <strong class="text-blue-600">Pokémon API</strong> to display all Pokémon information. Gotta catch them all!
+          A lone yellow arrow (representing the player), destines to outmaneuver hordes of relentless purple octopus aliens.  Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong class="text-blue-600">Rust</strong> and run on your IDE terminal.
         </p>
       </Step>
     </div>
