@@ -4,14 +4,10 @@
   import { onMount, onDestroy } from "svelte";
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
-  import { crossfade } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { projects } from '$lib/projects';
-
-  const [send, receive] = crossfade({
-      duration: 400,
-      easing: quintOut
-  });
+  import { spring } from 'svelte/motion';
+  import '../app.css';
 
   const path = [
       [0, 0], [1, 0], [2, 0], [3, 0], [4, 0],
@@ -46,55 +42,79 @@
 
   // Carousel state
   let currentIndex = 0;
-    let visibleProjects = 3;
-    let isTransitioning = false;
-    let autoRotateInterval;
-    let isHovering = false; // Track hover state
-    const autoSlideDuration = 3000;
+  let visibleProjects = 3;
+  let isTransitioning = false;
+  let autoRotateInterval;
+  let isHovering = false;
+  const autoSlideDuration = 2000;
 
-    // Update visible projects based on screen size
-    function updateVisibleProjects() {
-        if (!browser) return;
-        
-        const width = window.innerWidth;
-        if (width >= 1024) {
-            visibleProjects = 3;
-        } else if (width >= 768) {
-            visibleProjects = 2;
-        } else {
-            visibleProjects = 1;
-        }
+  // Calculate visible projects based on screen size
+  function updateVisibleProjects() {
+    if (!browser) return;
+    
+    const width = window.innerWidth;
+    if (width >= 1024) {
+      visibleProjects = 3;
+    } else if (width >= 768) {
+      visibleProjects = 2;
+    } else {
+      visibleProjects = 1;
     }
-
-    function nextProject() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex = (currentIndex + 1) % projects.length;
-        setTimeout(() => isTransitioning = false, 400);
-    }
-
-    function prevProject() {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-        setTimeout(() => isTransitioning = false, 400);
-    }
-
-    function goToProject(index) {
-        if (isTransitioning) return;
-        isTransitioning = true;
-        currentIndex = index;
-        setTimeout(() => isTransitioning = false, 400);
-    }
-
-    function pauseRotation() {
-    clearInterval(autoRotateInterval);
-    isHovering = true;
   }
+
+  // Improved carousel navigation
+  function nextProject() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex = (currentIndex + 1) % projects.length;
+    setTimeout(() => isTransitioning = false, 500);
+  }
+
+  function prevProject() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+    setTimeout(() => isTransitioning = false, 500);
+  }
+
+  function goToProject(index) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentIndex = index;
+    setTimeout(() => isTransitioning = false, 500);
+  }
+
+  // Get the projects to display (including clones for infinite effect)
+  function getDisplayProjects() {
+    const displayProjects = [];
+    const totalProjects = projects.length;
+    
+    // Always show current, previous and next projects for seamless transition
+    for (let i = -1; i <= visibleProjects; i++) {
+      const index = (currentIndex + i + totalProjects) % totalProjects;
+      displayProjects.push({
+        ...projects[index],
+        position: i,
+        isActive: i === 0
+      });
+    }
+    
+    return displayProjects;
+  }
+
+  // Calculate transform value based on position
+  function getTransformStyle(position) {
+    const gap = 2; // rem
+    const itemWidth = 100 / visibleProjects;
+    const offset = -itemWidth * position;
+    
+    return `translateX(calc(${offset}% + ${position * gap}rem))`;
+  }
+
 
   function resumeRotation() {
     isHovering = false;
-    if (!autoRotateInterval) {
+    if (!autoRotateInterval && !isHovering) {
       autoRotateInterval = setInterval(nextProject, autoSlideDuration);
     }
   }
@@ -104,7 +124,7 @@
     
     updateVisibleProjects();
     window.addEventListener('resize', updateVisibleProjects);
-    autoRotateInterval = setInterval(nextProject, autoSlideDuration); // Use new duration
+    autoRotateInterval = setInterval(nextProject, autoSlideDuration);
     
     return () => {
       clearInterval(autoRotateInterval);
@@ -112,16 +132,8 @@
     };
   });
 
-    function getVisibleProjects() {
-        let visible = [];
-        for (let i = 0; i < visibleProjects; i++) {
-            const index = (currentIndex + i) % projects.length;
-            visible.push(projects[index]);
-        }
-        return visible;
-    }
 
-  let benefits = [
+  let traits = [
       {
           metric: '10x',
           name: 'a self taught developer',
@@ -160,178 +172,8 @@
   }
 </script>
 
-<style>
-.tech-grid {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.tech-item {
-    position: absolute;
-    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    will-change: transform;
-}
-
-.tech-container {
-    position: relative;  /* Added for label positioning */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0);
-    border: 2px solid #0e71e9;
-    border-radius: 15px;
-    box-shadow: 0 4px 4px rgba(68, 208, 243, 0.1);
-    width: 85%;
-    height: 85%;
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.tech-container:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(121, 181, 253, 0.973);
-}
-
-.tech-icon {
-    max-width: 50%;
-    max-height: 50%;
-    transition: transform 0.3s ease;
-}
-
-.tech-container:hover .tech-icon {
-    transform: scale(1.1);
-}
-
-/* Add these new styles for labels */
-.tech-label {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(14, 113, 233, 0.9);
-    color: white;
-    padding: 0.25rem;
-    font-size: 0.75rem;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: all 0.3s ease;
-    pointer-events: none;
-    border-radius: 0 0 12px 12px;
-}
-
-.tech-container:hover .tech-label {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes slideIn {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-}
-
-/* Carousel styles */
-.carousel-container {
-    position: relative;
-    width: 98%;
-    overflow: hidden;
-}
-
-.carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease;
-    gap: 1rem;
-    padding: 1rem 0;
-}
-
-.carousel-item {
-        min-width: calc(100% / var(--visible-projects));
-        flex: 0 0 calc(100% / var(--visible-projects));
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .step-container {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .step-content {
-        flex: 1;
-    }
-
-@media (max-width: 1023px) {
-    .carousel-item {
-        min-width: calc(100% / 2);
-        flex: 0 0 calc(100% / 2);
-    }
-}
-
-@media (max-width: 767px) {
-    .carousel-item {
-        min-width: 100%;
-        flex: 0 0 100%;
-    }
-}
-
-.carousel-nav {
-    display: flex;
-    justify-content: center;
-    gap: 2.8rem;
-    margin-top: 2rem;
-}
-
-.carousel-btn {
-    background: #0e71e9;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.1s ease;
-}
-
-.carousel-btn:hover {
-    background: #0a5bbf;
-    transform: scale(1.1);
-}
-
-.carousel-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.dot.active {
-    background: #0e71e9;
-}
-</style>
-
 <main class="flex flex-col flex-1 p-4" >
+  <!-- Intro section -->
   <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
       <!-- Left Column -->
       <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10 lg:pl-12">
@@ -391,58 +233,61 @@
   </section>
 
 <!-- Projects Section -->
-<section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
-  <div class="flex flex-col gap-2 text-center">
+<section class="py-10 lg:py-32 flex flex-col gap-24 overflow-x-hidden" id="projects">
+    <div class="flex flex-col gap-2 text-center">
       <h6 class="text-large sm:text-xl md:text-2xl">A few of my creative endeavors.</h6>
       <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
-          Curious to <span class="poppins text-blue-600">see</span> my work?
+        Curious to <span class="poppins text-blue-600">see</span> my work?
       </h3>
-  </div>
-  
-  <div class="carousel-container"
-     role="region"
-     aria-label="Project carousel"
-     on:mouseenter={pauseRotation}
-     on:mouseleave={resumeRotation}
-     on:focusin={pauseRotation}
-     on:focusout={resumeRotation}
-     style="--visible-projects: {visibleProjects}">
-      <div class="carousel-inner">
-          {#each getVisibleProjects() as project, i}
-              <div class="carousel-item" 
-                   in:send={{ key: project.name }}
-                   out:receive={{ key: project.name }}>
-                  <div class="step-container">
-                      <Step step={project}>
-                          <div class="step-content">
-                              {@html project.details}
-                          </div>
-                      </Step>
-                  </div>
-              </div>
-          {/each}
+    </div>
+    
+    <div class="relative w-full overflow-hidden"
+         role="region"
+         aria-label="Project carousel"
+         on:mouseenter={pauseRotation}
+         on:mouseleave={resumeRotation}>
+      <!-- Carousel track container -->
+      <div class="relative w-full" style="padding-top: 6rem; margin-top: -5px;">
+        <!-- Carousel track -->
+        <div class="flex items-center w-full transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
+             style="transform: {getTransformStyle(0)};">
+             {#each getDisplayProjects() as project (project.name)}
+             <div class="flex-shrink-0 transition-all duration-500 ease-in-out px-4 h-full"
+                  style="width: {100 / visibleProjects}%; 
+                        opacity: {project.position === 0 ? 1 : project.position === -1 || project.position === 1 ? 0.8 : 0.6};
+                        transition: opacity 500ms ease-in-out;">
+                 <div class="step-container h-full">
+                     <Step step={project}>
+                         <div class="step-content">
+                             {@html project.details}
+                         </div>
+                     </Step>
+                 </div>
+             </div>
+         {/each}
+        </div>
       </div>
       
-      <div class="carousel-nav">
-          <button class="carousel-btn" on:click={prevProject} disabled={isTransitioning} aria-label="Previous project">
-              <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-          </button>
-          <button class="carousel-btn" on:click={nextProject} disabled={isTransitioning} aria-label="Next project">
-              <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-          </button>
-      </div>
-      
-      <div class="carousel-dots">
+      <div class="carousel-nav mt-8">
+        <button class="carousel-btn" on:click={prevProject} aria-label="Previous project">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        
+        <div class="carousel-dots">
           {#each projects as _, index}
-              <button 
-                  class="dot {currentIndex === index ? 'active' : ''}" 
-                  aria-label={`Go to project ${index + 1}`}
-                  on:click={() => goToProject(index)}
-                  on:keydown={(e) => e.key === 'Enter' || e.key === ' ' ? goToProject(index) : null}
-              ></button>
+            <button 
+              class="dot {currentIndex === index ? 'active' : ''}" 
+              aria-label={`Go to project ${index + 1}`}
+              on:click={() => goToProject(index)}>
+            </button>
           {/each}
+        </div>
+        
+        <button class="carousel-btn" on:click={nextProject} aria-label="Next project">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
-  </div>
+    </div>
 </section>
 
 <!-- About Section -->
@@ -457,12 +302,12 @@
   </div>
   <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">I am . . .</p>
   <div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
-    {#each benefits as benefit, index}
+    {#each traits as trait, index}
       <div class="flex gap-6 sm:gap-8">
         <p class="poppins text-4xl sm:text-5xl md:text-6xl text-yellow-400 font-semibold">0{index + 1}</p>
         <div class="flex flex-col gap-6 sm:gap-8">
-          <h3 class="text-2xl sm:text-3xl md:text-5xl">{benefit.name}</h3>
-          <p>{benefit.description}</p>
+          <h3 class="text-2xl sm:text-3xl md:text-5xl">{trait.name}</h3>
+          <p>{trait.description}</p>
         </div>
       </div>
     {/each}

@@ -9,29 +9,25 @@ export const projects = [
     {
         name: 'Shopping list',
         icon: 'fa-solid fa-cart-shopping',
-        description: 'Ultimate Todos is a Full Stack <strong>Next.js</strong>, <strong>Node.js + Express.js</strong> & <strong>Firebase</strong> CRUD application that allows a user to login, manage a tidy and efficacious todo list, and persist this information across devices.',
         href: 'https://github.com/mitiqttg/shoppingListsPage',
         details: 'A web application for managing shopping lists and their items with basic <strong class="text-blue-600">CRUD</strong> functions. The application is containerized with <strong class="text-blue-600">Docker</strong> for easy local deployment, and includes end-to-end testing with <strong class="text-blue-600">Playwright</strong>.'
     },
     {
         name: 'Rusty run!',
         icon: 'fa-brands fa-rust',
-        description: 'A lone yellow arrow (representing the player), must outmaneuver hordes of relentless purple octopus aliens. Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong>Rust</strong> and run on your IDE terminal.',
         href: 'https://github.com/mitiqttg/Rust-game-project',
         details: 'A lone yellow arrow (representing the player), destines to outmaneuver hordes of relentless purple octopus aliens. Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong class="text-blue-600">Rust</strong> and run on your IDE terminal.'
     },
     {
         name: 'Pet Rescue',
         icon: 'fa-solid fa-paw',
-        description: 'A lone yellow arrow (representing the player), must outmaneuver hordes of relentless purple octopus aliens. Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong>Rust</strong> and run on your IDE terminal.',
         href: 'https://github.com/mitiqttg/Rust-game-project',
-        details: 'A lone yellow arrow (representing the player), destines to outmaneuver hordes of relentless purple octopus aliens. Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong class="text-blue-600">Rust</strong> and run on your IDE terminal.'
+        details: 'Dedicated to all pet lovers, this app is a <strong class="text-blue-600">Flutter</strong> project that rescue pets and rehome them for a period or permanent. The database is stored locally for the moment.'
     },
     {
         name: 'Country & Weather',
         icon: 'fa-solid fa-cloud',
-        description: 'A lone yellow arrow (representing the player), must outmaneuver hordes of relentless purple octopus aliens. Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong>Rust</strong> and run on your IDE terminal.',
-        href: 'https://github.com/mitiqttg/Rust-game-project',
-        details: 'A lone yellow arrow (representing the player), destines to outmaneuver hordes of relentless purple octopus aliens. Collecting hearts scattered throughout the field will be crucial for survival. This game is built using <strong class="text-blue-600">Rust</strong> and run on your IDE terminal.'
+        href: 'https://country-at-glance.netlify.app/',
+        details: 'This app filters out the countries, check the country information such as population, area, languages and show capitals current weather. <strong class="text-blue-600">React</strong>, <strong class="text-blue-600">Vite</strong> and <strong class="text-blue-600">API</strong> are used to build, and get data'
     }
 ];

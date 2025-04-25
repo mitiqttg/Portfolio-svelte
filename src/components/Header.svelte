@@ -27,7 +27,7 @@
 <header
   class={"sticky z-[100] duration-200 mx-auto px-6 flex left-0 right-0 items-center transition-all md:top-0 md:bottom-auto bottom-0 md:w-[33rem] justify-between md:justify-self-center md:mt-4 md:rounded-full border-b " +
     (y > 0
-      ? "py-4 md:py-3 bg-sky-600 opacity-28 hover:opacity-88 hover:bg-sky-850 border-transparent mt-2 md:mt-1"
+      ? "py-4 md:py-3 bg-sky-600 opacity-18 hover:opacity-88 hover:bg-sky-850 border-transparent mt-2 md:mt-1"
       : " py-6 bg-transparent border-transparent mt-0")}
 >
   <button

@@ -5,14 +5,14 @@
 <a
     href={step.href}
     target="_blank"
-    class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-blue-950 text-center cursor-pointer group hover:border-blue-600 duration-200"
+    class="step-item p-2 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-blue-950 text-center cursor-pointer group hover:border-blue-600 duration-200 relative"
 >
     <div
-        class="bg-zinc-950 grid place-items-center p-4 text-5xl md:text-6xl -mt-10 sm:-mt-12 md:-mt-14 lg:-mt-16 mx-auto duration-200"
+        class="bg-zinc-950 grid place-items-center p-2 absolute -top-12 left-1/2 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-visible"
     >
-        <i class={step.icon}></i>
+        <i class={step.icon + " text-3xl sm:text-4xl md:text-5xl absolute"}></i>
     </div>
-    <h3 class="font-medium text-xl sm:text-2xl md:text-3xl">
+    <h3 class="font-medium text-xl sm:text-2xl md:text-3xl mt-12 sm:mt-14 md:mt-16">
         {step.name}
     </h3>
     <slot />
