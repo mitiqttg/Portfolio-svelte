@@ -100,6 +100,7 @@
     }
     
     return displayProjects;
+
   }
 
   // Calculate transform value based on position
@@ -111,15 +112,20 @@
     return `translateX(calc(${offset}% + ${position * gap}rem))`;
   }
 
-
-  function resumeRotation() {
-    isHovering = false;
-    if (!autoRotateInterval && !isHovering) {
-      autoRotateInterval = setInterval(nextProject, autoSlideDuration);
+function pauseRotation() {
+    if (autoRotateInterval) {
+        clearInterval(autoRotateInterval);
+        autoRotateInterval = null;
     }
-  }
+}
 
-  onMount(() => {
+function resumeRotation() {
+    if (!autoRotateInterval && !isHovering) {
+        autoRotateInterval = setInterval(nextProject, autoSlideDuration);
+    }
+}
+
+onMount(() => {
     if (!browser) return;
     
     updateVisibleProjects();
@@ -127,10 +133,10 @@
     autoRotateInterval = setInterval(nextProject, autoSlideDuration);
     
     return () => {
-      clearInterval(autoRotateInterval);
-      window.removeEventListener('resize', updateVisibleProjects);
+        pauseRotation();
+        window.removeEventListener('resize', updateVisibleProjects);
     };
-  });
+});
 
 
   let traits = [
@@ -276,9 +282,10 @@
         <div class="carousel-dots">
           {#each projects as _, index}
             <button 
-              class="dot {currentIndex === index ? 'active' : ''}" 
+              class="dot-container"
               aria-label={`Go to project ${index + 1}`}
               on:click={() => goToProject(index)}>
+              <div class="dot {currentIndex === index ? 'active' : ''}"></div>
             </button>
           {/each}
         </div>
