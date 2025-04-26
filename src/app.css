@@ -42,7 +42,7 @@ h1, h2, h3, .poppins {font-family: 'Poppins', sans-serif;}
 }
 
 .tech-container {
-    position: relative;  /* Added for label positioning */
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,12 +130,11 @@ h1, h2, h3, .poppins {font-family: 'Poppins', sans-serif;}
 }
 
 .step-item {
-    min-height: 450px; /* Adjust this value as needed */
+    min-height: 450px;
     display: flex;
     flex-direction: column;
 }
 
-/* Ensure the step content doesn't cause overflow */
 .step-content {
     flex: 1;
     text-align: justify;
@@ -194,7 +193,7 @@ h1, h2, h3, .poppins {font-family: 'Poppins', sans-serif;}
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem; /* Adjust this value for spacing */
+    gap: 1.5rem;
     margin-top: 2rem;
   }
 
