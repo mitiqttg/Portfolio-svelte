@@ -230,7 +230,7 @@
 
     <!-- Right Column - Profile Image -->
     <div class="relative shadow-xl grid place-items-center">
-      <img src="images/myImage.png" alt="Tien Tran" class="object-cover z-[4] max-h-[80vh]" />
+      <img src="images/mitiAva.png" alt="Tien Tran" class="object-cover z-[4] max-h-[80vh]" />
     </div>
   </section>
 
