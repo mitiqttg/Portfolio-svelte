@@ -1,4 +1,4 @@
-import adapter from 'amplify-adapter';
+import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
               

@@ -170,10 +170,36 @@
     link.click();
     document.body.removeChild(link);
   }
+
+    /* ─────────────────────────────────────
+     LIGHT / DARK THEME TOGGLE  ← NEW
+  ───────────────────────────────────── */
+  let darkMode = false;                           // reactive
+  function applyTheme(isDark) {
+  document.documentElement.classList.toggle('dark', isDark);
+  localStorage.theme = isDark ? 'dark' : 'light';
+}
+  function toggleTheme(){                         // click handler
+    darkMode=!darkMode;
+    applyTheme(darkMode);
+  }
+  onMount(() => {
+    if(!browser) return;
+    const stored   = localStorage.getItem('theme');
+    const prefers  = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    darkMode = stored ? stored==='dark' : prefers;
+    applyTheme(darkMode);
+  });
 </script>
 
 
 <main class="flex flex-col flex-1 p-4" >
+  <button
+    on:click={toggleTheme}
+    class="fixed top-4 right-4 z-50 p-2 rounded-full border border-gray-400/40
+           bg-white dark:bg-gray-800 text-xl shadow-md hover:scale-110 transition">
+    {#if darkMode} ☀️ {:else} 🌙 {/if}
+  </button>
   <!-- Intro section -->
   <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
     <!-- Left Column -->
@@ -204,7 +230,9 @@
                 height: 50%;
               "
             >
-              <div class="tech-container">
+              <div class="tech-container
+                bg-white/0            dark:bg-white/5
+                border-blue-600       dark:border-blue-300">
                 {#if techs[pos].icon.startsWith('fa-')}
                   <i class={`${techs[pos].icon} tech-icon`}></i>
                 {:else}
@@ -255,7 +283,10 @@
                   style="width: {100 / visibleProjects}%; 
                         opacity: {project.position === 0 ? 1 : project.position === -1 || project.position === 1 ? 0.8 : 0.6};
                         transition: opacity 500ms ease-in-out;">
-                 <div class="step-container h-full">
+                 <div class="step-container h-full
+                      bg-white/10           dark:bg-gray-800/40
+                      shadow-lg             dark:shadow-none
+                      ring-1 ring-blue-500  dark:ring-blue-300">
                      <Step step={project}>
                          <div class="step-content">
                              {@html project.details}
@@ -263,7 +294,7 @@
                      </Step>
                  </div>
              </div>
-         {/each}
+              {/each}
         </div>
       </div>
       
