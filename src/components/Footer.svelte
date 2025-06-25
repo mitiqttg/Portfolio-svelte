@@ -8,24 +8,24 @@
     <div class="flex flex-col gap-4 items-center justify-left">
         <p><b class="pr-2">Email</b> <a class="text-yellow-400" href="mailto:minhtien2812000@gmail.com">minhtien2812000@gmail.com</a></p>
         <p>
-            <b class="pr-2">Instagram</b> 
-            <a class="text-yellow-400" target="_blank" href="https://www.instagram.com/mitifromqt">mitifromqt<sup class=""
-            ><span class="text-xs scale-75 pl-0.5"
-                ><i
-                    class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
-                ></i></span
-            ></sup
-        ></a></p>
-        <p>
             <b class="pr-2">GitHub</b>
             <a href="https://github.com/mitiqttg" target="_blank" class="text-yellow-500">
                 Tien Minh Tran<sup class=""
-                    ><span class="text-xs scale-75 pl-0.5"
-                        ><i
-                            class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
-                        ></i></span
-                    ></sup
+                ><span class="text-xs scale-75 pl-0.5"
+                ><i
+                class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
+                ></i></span
+                ></sup
                 >
+            </a>
+        </p>
+        <p>
+            <b class="pr-2">Instagram</b> 
+            <a class="text-yellow-400" target="_blank" href="https://www.instagram.com/mitifromqt">
+                mitifromqt
+                <sup class=""><span class="text-xs scale-75 pl-0.5"><i
+                    class="fa-solid fa-arrow-up-right-from-square text-xs scale-[75%]"
+                ></i></span></sup>
             </a>
         </p>
     </div>
