@@ -26,7 +26,7 @@
   ];
 
   let techs = [
-    { name: "HTML", icon: "/images/html-icon.svg", id: 1 },
+    { name: "Java", icon: "/images/java-icon.svg", id: 1 },
     { name: "Rust", icon: "/images/rust-icon.svg", id: 2 },
     { name: "JavaScript", icon: "/images/javascript-icon.svg", id: 3 },
     { name: "Svelte", icon: "/images/svelte-icon.svg", id: 4 },
@@ -171,40 +171,56 @@
     document.body.removeChild(link);
   }
 
-    /* ─────────────────────────────────────
-     LIGHT / DARK THEME TOGGLE  ← NEW
-  ───────────────────────────────────── */
-  let darkMode = false;                           // reactive
+  let darkModeCount = 0;                       
+  let darkMode = false;                        
   function applyTheme(isDark) {
   document.documentElement.classList.toggle('dark', isDark);
   localStorage.theme = isDark ? 'dark' : 'light';
 }
-  function toggleTheme(){                         // click handler
-    darkMode=!darkMode;
-    applyTheme(darkMode);
+
+let showWarning = false;
+  function toggleTheme(){
+    darkModeCount++;
+    darkMode = !darkMode;                       
+    if (darkModeCount % 4 == 0) {
+      showWarning = true;
+      darkModeCount = 0;
+    }
   }
-  onMount(() => {
-    if(!browser) return;
-    const stored   = localStorage.getItem('theme');
-    const prefers  = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    darkMode = stored ? stored==='dark' : prefers;
-    applyTheme(darkMode);
-  });
+
 </script>
+{#if showWarning}
+  <div class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
+    <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-900 p-6 rounded-xl shadow-xl max-w-sm w-full">
+      <p class="mb-4 text-sm sm:text-base">
+        You've been pranked, no light mode needed🐞
+      </p>
+      <div class="flex justify-center">
+        <button
+          class="px-4 py-2 bg-blue-500 text-black rounded-md hover:bg-blue-600 transition"
+          on:click={() => (showWarning = false)}
+        >
+          OK
+        </button>
+      </div>
+    </div>
+  </div>
+{/if}
 
 
 <main class="flex flex-col flex-1 p-4" >
+
   <button
     on:click={toggleTheme}
     class="fixed top-4 right-4 z-50 p-2 rounded-full border border-gray-400/40
            bg-white dark:bg-gray-800 text-xl shadow-md hover:scale-110 transition">
-    {#if darkMode} ☀️ {:else} 🌙 {/if}
+    {#if darkMode} 🔆 {:else} 🌙 {/if}
   </button>
   <!-- Intro section -->
   <section id="introPage" class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14">
     <!-- Left Column -->
     <div class="flex flex-col lg:justify-center pl-10 text-center lg:text-left gap-6 md:gap-8 lg:gap-10 lg:pl-12">
-      <h2 class=" text-4xl sm:text-5xl md:text-6xl">
+      <h2 class=" text-4xl sm:text-5xl md:text-6xl text-black dark:text-white">
         Hi! I'm <span class="poppins text-blue-500">Tien</span> Tran
         <br />
         <span class="inline-flex items-center gap-4 mt-4">
@@ -231,8 +247,7 @@
               "
             >
               <div class="tech-container
-                bg-white/0            dark:bg-white/5
-                border-blue-600       dark:border-blue-300">
+                bg-white/0            dark:bg-white/5">
                 {#if techs[pos].icon.startsWith('fa-')}
                   <i class={`${techs[pos].icon} tech-icon`}></i>
                 {:else}
@@ -274,26 +289,22 @@
          on:mouseenter={pauseRotation}
          on:mouseleave={resumeRotation}>
       <!-- Carousel track container -->
-            <div class="relative w-full" style="padding-top: 6rem; margin-top: -5px;">
-        <!-- Carousel track -->
+      <div class="relative w-full border-none" style="padding-top: 6rem; margin-top: -5px; border: none;">
         <div class="flex items-center w-full transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)]"
              style="transform: {getTransformStyle(0)};">
              {#each getDisplayProjects() as project (project.name)}
-             <div class="flex-shrink-0 transition-all duration-500 ease-in-out px-4 h-full"
-                  style="width: {100 / visibleProjects}%; 
-                        opacity: {project.position === 0 ? 1 : project.position === -1 || project.position === 1 ? 0.8 : 0.6};
-                        transition: opacity 500ms ease-in-out;">
-                 <div class="step-container h-full
-                      bg-white/10           dark:bg-gray-800/40
-                      shadow-lg             dark:shadow-none
-                      ring-1 ring-blue-500  dark:ring-blue-300">
-                     <Step step={project}>
-                         <div class="step-content">
-                             {@html project.details}
-                         </div>
-                     </Step>
-                 </div>
-             </div>
+              <div class="flex-shrink-0 transition-all duration-500 ease-in-out px-4 h-full"
+                    style="width: {100 / visibleProjects}%; 
+                          opacity: {project.position === 0 ? 1 : project.position === -1 || project.position === 1 ? 0.8 : 0.6};
+                          transition: opacity 500ms ease-in-out;">
+                  <div class="step-container h-full">
+                      <Step step={project}>
+                          <div class="step-content">
+                              {@html project.details}
+                          </div>
+                      </Step>
+                  </div>
+              </div>
               {/each}
         </div>
       </div>
@@ -351,3 +362,4 @@
 
   <BackToTop />
 </main>
+

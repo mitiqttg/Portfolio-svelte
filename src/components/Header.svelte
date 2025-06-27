@@ -62,29 +62,42 @@
 </header>
 
 {#if showWarning}
-  <div class="warning show">
-    <div class="warning-content">
-      <p class="warning-text">The blog section is still under development!<br /> 
-      Follow my <a href="https://github.com/mitiqttg" target="_blank" class="text-blue-500"
-      >Github </a> for more information 🤓</p>
-      <button class="warning-button" on:click={() => (showWarning = false)}>OK</button>
+  <div class="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
+    <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-900 p-6 rounded-xl shadow-xl max-w-sm w-full">
+      <p class="mb-4 text-sm sm:text-base">
+        The blog section is under development!<br />
+        Follow my 
+        <a 
+          href="https://github.com/mitiqttg" 
+          target="_blank" 
+          class="underline text-yellow-500 hover:text-yellow-400 transition"
+        >
+          GitHub
+        </a> 
+        for more information🤓
+      </p>
+      <div class="flex justify-center">
+        <button
+          class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+          on:click={() => (showWarning = false)}
+        >
+          OK
+        </button>
+      </div>
     </div>
   </div>
 {/if}
 
+
 <style>
-  /* Adjust margin when y > 0 for larger screens */
   @media (min-width: 768px) {
-    /* md breakpoint */
     header.py-4 {
       padding-top: 0.75rem;
-      /* Adjust as needed */
-      padding-bottom: 0.75rem; /* Keep vertical padding consistent */
+      padding-bottom: 0.75rem;
     }
     a.py-2 {
       padding-top: 0.5rem;
-      /* Adjust as needed */
-      padding-bottom: 0.5rem; /* Keep vertical padding consistent */
+      padding-bottom: 0.5rem;
     }
   }
 

@@ -8,7 +8,7 @@
     class="step-item p-2 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border-3 border-solid border-blue-950 text-center cursor-pointer group hover:border-blue-600 duration-200 relative"
 >
     <div
-        class="bg-zinc-950 grid place-items-center p-2 absolute -top-12 left-1/2 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-visible"
+        class="bg-blue-400 dark:bg-zinc-950 grid place-items-center p-2 absolute -top-12 left-1/2 -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl overflow-visible"
     >
         <i class={step.icon + " text-3xl sm:text-4xl md:text-5xl absolute"}></i>
     </div>
